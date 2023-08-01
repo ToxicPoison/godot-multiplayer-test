@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://dg7uvls3kf76w"]
+
+[ext_resource type="Texture2D" uid="uid://bdlmmlpxq8nws" path="res://environment/basic-tiles.png" id="1_hf20g"]
+[ext_resource type="Script" path="res://environment/terrain.gd" id="2_1inpj"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mncrk"]
+texture = ExtResource("1_hf20g")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_drma8"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_mncrk")
+
+[node name="Terrain" type="Node2D"]
+script = ExtResource("2_1inpj")
+
+[node name="TileMap" type="TileMap" parent="."]
+texture_filter = 1
+position = Vector2(-309, -160)
+tile_set = SubResource("TileSet_drma8")
+format = 2

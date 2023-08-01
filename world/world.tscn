@@ -1,12 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dy4xh0unbyrou"]
+[gd_scene load_steps=2 format=3 uid="uid://dy4xh0unbyrou"]
 
 [ext_resource type="Script" path="res://world/world.gd" id="1_faeyp"]
-[ext_resource type="PackedScene" uid="uid://dg7uvls3kf76w" path="res://environment/environment.tscn" id="2_a7m3e"]
 
 [node name="World" type="Node"]
 script = ExtResource("1_faeyp")
-
-[node name="Environment" parent="." instance=ExtResource("2_a7m3e")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
