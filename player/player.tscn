@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://crqe5bmsltk81"]
+
+[ext_resource type="Script" path="res://player/player.gd" id="1_t7ftp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4vfpg"]
+radius = 8.0
+
+[sub_resource type="Gradient" id="Gradient_jfl7j"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.975385, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.971084, 0.621958, 0.783441, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pasfd"]
+gradient = SubResource("Gradient_jfl7j")
+width = 16
+height = 16
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_148kr"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/sync = true
+properties/0/watch = false
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/sync = true
+properties/1/watch = false
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_t7ftp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_4vfpg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = SubResource("GradientTexture2D_pasfd")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_148kr")
